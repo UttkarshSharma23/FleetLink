@@ -1,16 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import AddVehiclePage from './pages/AddVehiclePage';
 import SearchAndBookPage from './pages/SearchAndBookPage';
 import NotFoundPage from './pages/NotFoundPage';
-import { BookingProvider } from './context/BookingContext'; 
+import { BookingProvider } from './context/BookingContext';
 import './App.css';
 
 const App = () => {
   return (
     <Router>
-      <BookingProvider> 
+      <BookingProvider>
         <div className="App">
+          {/* Navigation Bar */}
+          <nav style={{ marginBottom: '2rem' }}>
+            <Link to="/" style={{ marginRight: '1rem' }}>Home</Link>
+            <Link to="/add-vehicle">Add Vehicle</Link>
+          </nav>
           <Routes>
             <Route path="/" element={<SearchAndBookPage />} />
             <Route path="/add-vehicle" element={<AddVehiclePage />} />
